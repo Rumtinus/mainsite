@@ -14,6 +14,7 @@ namespace mainsite
 {
     public partial class Form9 : Form
     {
+        public int? stuId = null;
         public Form9()
         {
             InitializeComponent();
@@ -52,12 +53,7 @@ namespace mainsite
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int a = 1;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btndel_Click(object sender, EventArgs e)
         {
             int id = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             SqlConnection connection = new SqlConnection();
@@ -68,6 +64,14 @@ namespace mainsite
             cmd.ExecuteNonQuery();
             connection.Close();
             this.filler();
+        }
+
+        private void btnedit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form8 form8 = new Form8();
+            form8.stuId = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            form8.ShowDialog();
         }
     }
 }

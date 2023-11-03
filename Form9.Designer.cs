@@ -31,7 +31,8 @@
             dataGridView1 = new DataGridView();
             label1 = new Label();
             btnbackakharin = new Button();
-            button1 = new Button();
+            btndel = new Button();
+            btnedit = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -47,7 +48,6 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(447, 193);
             dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label1
             // 
@@ -62,23 +62,33 @@
             // 
             // btnbackakharin
             // 
-            btnbackakharin.Location = new Point(35, 43);
+            btnbackakharin.Location = new Point(46, 46);
             btnbackakharin.Name = "btnbackakharin";
-            btnbackakharin.Size = new Size(87, 31);
+            btnbackakharin.Size = new Size(65, 28);
             btnbackakharin.TabIndex = 2;
             btnbackakharin.Text = "بازگشت";
             btnbackakharin.UseVisualStyleBackColor = true;
             btnbackakharin.Click += btnbackakharin_Click;
             // 
-            // button1
+            // btndel
             // 
-            button1.Location = new Point(143, 46);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 3;
-            button1.Text = "حذف";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btndel.Location = new Point(128, 46);
+            btndel.Name = "btndel";
+            btndel.Size = new Size(65, 28);
+            btndel.TabIndex = 3;
+            btndel.Text = "حذف";
+            btndel.UseVisualStyleBackColor = true;
+            btndel.Click += btndel_Click;
+            // 
+            // btnedit
+            // 
+            btnedit.Location = new Point(208, 44);
+            btnedit.Name = "btnedit";
+            btnedit.Size = new Size(65, 28);
+            btnedit.TabIndex = 4;
+            btnedit.Text = "ویرایش";
+            btnedit.UseVisualStyleBackColor = true;
+            btnedit.Click += btnedit_Click;
             // 
             // Form9
             // 
@@ -86,7 +96,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
             ClientSize = new Size(498, 322);
-            Controls.Add(button1);
+            Controls.Add(btnedit);
+            Controls.Add(btndel);
             Controls.Add(btnbackakharin);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
@@ -106,6 +117,7 @@
         private DataGridView dataGridView1;
         private Label label1;
         private Button btnbackakharin;
-        private Button button1;
+        private Button btndel;
+        private Button btnedit;
     }
 }

@@ -13,6 +13,7 @@ namespace mainsite
 {
     public partial class Form8 : Form
     {
+        public int? stuId = null;
         public Form8()
         {
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace mainsite
                 string columnterm = dreadd["Term"].ToString();
                 cmbterm.Items.Add(columnterm);
 
+
             }
             conn.Close();
             conn.Open();
@@ -61,12 +63,6 @@ namespace mainsite
                 cmbdanesh.Items.Add(columndanesh);
 
             }
-
-
-
-            conn.Close();
-
-
 
 
 
@@ -112,10 +108,26 @@ namespace mainsite
         }
         private void save_it()
         {
-            SqlConnection conn = new SqlConnection();
+            /*SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
             conn.Open();
             string q = string.Format("insert into [tblresult] (Name,Term,Lesson) values (N'{0}',{1},N'{2}')", cmbdanesh.Text, cmbterm.Text.ToString(), cmbdars.Text);
+            SqlCommand cmd = new SqlCommand(q, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();*/
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
+            conn.Open();
+            string q = "";
+            if (stuId == null)
+            {
+                q = string.Format("insert into [tblresult] (Name,Term,Lesson) values (N'{0}',{1},N'{2}')", cmbdanesh.Text, cmbterm.Text.ToString(), cmbdars.Text);
+            }
+            else
+            {
+                q = string.Format("update tblresult set Name=N'{0}',Term={1},Lesson=N'{2}' where Id={3}", cmbdanesh.Text, cmbterm.Text.ToString(), cmbdars.Text, stuId);
+            }
             SqlCommand cmd = new SqlCommand(q, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
