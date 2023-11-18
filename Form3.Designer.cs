@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            cmbtarifdars = new ComboBox();
-            btnbackdars = new Button();
-            btndeldars = new Button();
-            btneditdars = new Button();
+            cmbLessonPresenting = new ComboBox();
+            btnBackLessonList = new Button();
+            btnDeleteLessonList = new Button();
+            btnEditLessonList = new Button();
             SuspendLayout();
             // 
             // label1
@@ -46,47 +46,45 @@
             label1.TabIndex = 0;
             label1.Text = "فهرست دروس:";
             // 
-            // cmbtarifdars
+            // cmbLessonPresenting
             // 
-            cmbtarifdars.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbtarifdars.FormattingEnabled = true;
-            cmbtarifdars.Location = new Point(71, 67);
-            cmbtarifdars.Name = "cmbtarifdars";
-            cmbtarifdars.RightToLeft = RightToLeft.Yes;
-            cmbtarifdars.Size = new Size(204, 23);
-            cmbtarifdars.TabIndex = 1;
-            cmbtarifdars.SelectedIndexChanged += cmbtarifdars_SelectedIndexChanged;
-            cmbtarifdars.Click += cmbtarifdars_Click;
+            cmbLessonPresenting.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbLessonPresenting.FormattingEnabled = true;
+            cmbLessonPresenting.Location = new Point(71, 67);
+            cmbLessonPresenting.Name = "cmbLessonPresenting";
+            cmbLessonPresenting.RightToLeft = RightToLeft.Yes;
+            cmbLessonPresenting.Size = new Size(204, 23);
+            cmbLessonPresenting.TabIndex = 1;
             // 
-            // btnbackdars
+            // btnBackLessonList
             // 
-            btnbackdars.Location = new Point(71, 160);
-            btnbackdars.Name = "btnbackdars";
-            btnbackdars.Size = new Size(75, 29);
-            btnbackdars.TabIndex = 2;
-            btnbackdars.Text = "بازگشت";
-            btnbackdars.UseVisualStyleBackColor = true;
-            btnbackdars.Click += btnbackdars_Click;
+            btnBackLessonList.Location = new Point(71, 160);
+            btnBackLessonList.Name = "btnBackLessonList";
+            btnBackLessonList.Size = new Size(75, 29);
+            btnBackLessonList.TabIndex = 2;
+            btnBackLessonList.Text = "بازگشت";
+            btnBackLessonList.UseVisualStyleBackColor = true;
+            btnBackLessonList.Click += btnBackLessonList_Click;
             // 
-            // btndeldars
+            // btnDeleteLessonList
             // 
-            btndeldars.Location = new Point(200, 160);
-            btndeldars.Name = "btndeldars";
-            btndeldars.Size = new Size(75, 29);
-            btndeldars.TabIndex = 3;
-            btndeldars.Text = "حذف";
-            btndeldars.UseVisualStyleBackColor = true;
-            btndeldars.Click += btndeldars_Click;
+            btnDeleteLessonList.Location = new Point(200, 160);
+            btnDeleteLessonList.Name = "btnDeleteLessonList";
+            btnDeleteLessonList.Size = new Size(75, 29);
+            btnDeleteLessonList.TabIndex = 3;
+            btnDeleteLessonList.Text = "حذف";
+            btnDeleteLessonList.UseVisualStyleBackColor = true;
+            btnDeleteLessonList.Click += btnDeleteLessonList_Click;
             // 
-            // btneditdars
+            // btnEditLessonList
             // 
-            btneditdars.Location = new Point(329, 160);
-            btneditdars.Name = "btneditdars";
-            btneditdars.Size = new Size(75, 29);
-            btneditdars.TabIndex = 4;
-            btneditdars.Text = "ویرایش";
-            btneditdars.UseVisualStyleBackColor = true;
-            btneditdars.Click += btneditdars_Click;
+            btnEditLessonList.Location = new Point(329, 160);
+            btnEditLessonList.Name = "btnEditLessonList";
+            btnEditLessonList.Size = new Size(75, 29);
+            btnEditLessonList.TabIndex = 4;
+            btnEditLessonList.Text = "ویرایش";
+            btnEditLessonList.UseVisualStyleBackColor = true;
+            btnEditLessonList.Click += btnEditLessonList_Click;
             // 
             // Form3
             // 
@@ -94,10 +92,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
             ClientSize = new Size(469, 288);
-            Controls.Add(btneditdars);
-            Controls.Add(btndeldars);
-            Controls.Add(btnbackdars);
-            Controls.Add(cmbtarifdars);
+            Controls.Add(btnEditLessonList);
+            Controls.Add(btnDeleteLessonList);
+            Controls.Add(btnBackLessonList);
+            Controls.Add(cmbLessonPresenting);
             Controls.Add(label1);
             KeyPreview = true;
             MaximizeBox = false;
@@ -112,10 +110,10 @@
         #endregion
 
         private Label label1;
-        private ComboBox cmbtarifdars;
-        private Button btnbackdars;
-        private Button btndeldars;
-        private Button btneditdars;
+        private ComboBox cmbLessonPresenting;
+        private Button btnBackLessonList;
+        private Button btnDeleteLessonList;
+        private Button btnEditLessonList;
         private ListView listView1;
     }
 }

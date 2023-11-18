@@ -28,123 +28,156 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnBackStudent = new Button();
+            btnSaveStudent = new Button();
+            txtNameStudent = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            txtnamedanesh = new TextBox();
-            btnbackdanesh = new Button();
-            btnsavedanesh = new Button();
-            txtlastnamedenesh = new TextBox();
+            txtLastnameStudent = new TextBox();
             label3 = new Label();
+            txtStudentNumber = new TextBox();
+            label4 = new Label();
+            lblErrorStudentName = new Label();
+            lblErrorStudentLastname = new Label();
+            lblErrorStudentNumber = new Label();
             SuspendLayout();
+            // 
+            // btnBackStudent
+            // 
+            btnBackStudent.Location = new Point(91, 254);
+            btnBackStudent.Name = "btnBackStudent";
+            btnBackStudent.Size = new Size(75, 27);
+            btnBackStudent.TabIndex = 0;
+            btnBackStudent.Text = "بازگشت";
+            btnBackStudent.UseVisualStyleBackColor = true;
+            btnBackStudent.Click += btnbackdanesh_Click;
+            // 
+            // btnSaveStudent
+            // 
+            btnSaveStudent.Location = new Point(209, 254);
+            btnSaveStudent.Name = "btnSaveStudent";
+            btnSaveStudent.Size = new Size(75, 27);
+            btnSaveStudent.TabIndex = 1;
+            btnSaveStudent.Text = "ذخیره";
+            btnSaveStudent.UseVisualStyleBackColor = true;
+            btnSaveStudent.Click += btnSaveStudent_Click;
+            // 
+            // txtNameStudent
+            // 
+            txtNameStudent.Location = new Point(91, 101);
+            txtNameStudent.Name = "txtNameStudent";
+            txtNameStudent.RightToLeft = RightToLeft.Yes;
+            txtNameStudent.Size = new Size(193, 23);
+            txtNameStudent.TabIndex = 2;
+            txtNameStudent.Click += txtNameStudent_Click;
+            txtNameStudent.TextChanged += txtNameStudent_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(286, 113);
+            label1.Location = new Point(290, 104);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
-            label1.Size = new Size(31, 21);
-            label1.TabIndex = 0;
+            label1.Size = new Size(24, 15);
+            label1.TabIndex = 3;
             label1.Text = "نام:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(286, 166);
+            label2.Location = new Point(290, 149);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.Yes;
-            label2.Size = new Size(94, 21);
-            label2.TabIndex = 1;
+            label2.Size = new Size(72, 15);
+            label2.TabIndex = 5;
             label2.Text = "نام خانوادگی:";
             // 
-            // label5
+            // txtLastnameStudent
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(72, 92);
-            label5.Name = "label5";
-            label5.RightToLeft = RightToLeft.Yes;
-            label5.Size = new Size(0, 15);
-            label5.TabIndex = 3;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(72, 145);
-            label6.Name = "label6";
-            label6.RightToLeft = RightToLeft.Yes;
-            label6.Size = new Size(0, 15);
-            label6.TabIndex = 4;
-            // 
-            // txtnamedanesh
-            // 
-            txtnamedanesh.Location = new Point(72, 110);
-            txtnamedanesh.Name = "txtnamedanesh";
-            txtnamedanesh.RightToLeft = RightToLeft.Yes;
-            txtnamedanesh.Size = new Size(208, 23);
-            txtnamedanesh.TabIndex = 5;
-            txtnamedanesh.Click += txtnamedanesh_Click;
-            txtnamedanesh.TextChanged += txtnamedanesh_TextChanged;
-            // 
-            // btnbackdanesh
-            // 
-            btnbackdanesh.Location = new Point(72, 231);
-            btnbackdanesh.Name = "btnbackdanesh";
-            btnbackdanesh.Size = new Size(69, 34);
-            btnbackdanesh.TabIndex = 6;
-            btnbackdanesh.Text = "بازگشت";
-            btnbackdanesh.UseVisualStyleBackColor = true;
-            btnbackdanesh.Click += btnbackdanesh_Click;
-            // 
-            // btnsavedanesh
-            // 
-            btnsavedanesh.Location = new Point(242, 231);
-            btnsavedanesh.Name = "btnsavedanesh";
-            btnsavedanesh.Size = new Size(69, 34);
-            btnsavedanesh.TabIndex = 7;
-            btnsavedanesh.Text = "ذخیره";
-            btnsavedanesh.UseVisualStyleBackColor = true;
-            btnsavedanesh.Click += btnsavedanesh_Click;
-            // 
-            // txtlastnamedenesh
-            // 
-            txtlastnamedenesh.Location = new Point(72, 163);
-            txtlastnamedenesh.Name = "txtlastnamedenesh";
-            txtlastnamedenesh.RightToLeft = RightToLeft.Yes;
-            txtlastnamedenesh.Size = new Size(208, 23);
-            txtlastnamedenesh.TabIndex = 8;
-            txtlastnamedenesh.Click += txtlastnamedenesh_Click;
-            txtlastnamedenesh.TextChanged += txtlastnamedenesh_TextChanged;
+            txtLastnameStudent.Location = new Point(91, 146);
+            txtLastnameStudent.Name = "txtLastnameStudent";
+            txtLastnameStudent.RightToLeft = RightToLeft.Yes;
+            txtLastnameStudent.Size = new Size(193, 23);
+            txtLastnameStudent.TabIndex = 4;
+            txtLastnameStudent.Click += txtLastnameStudent_Click;
+            txtLastnameStudent.TextChanged += txtLastnameStudent_TextChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(121, 52);
+            label3.Location = new Point(290, 197);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(275, 21);
-            label3.TabIndex = 9;
-            label3.Text = "لطفا نام دانشجوی جدید خود را وارد نمایید:";
+            label3.Size = new Size(94, 15);
+            label3.TabIndex = 7;
+            label3.Text = "شماره دانشجویی:";
+            // 
+            // txtStudentNumber
+            // 
+            txtStudentNumber.Location = new Point(91, 194);
+            txtStudentNumber.Name = "txtStudentNumber";
+            txtStudentNumber.RightToLeft = RightToLeft.Yes;
+            txtStudentNumber.Size = new Size(193, 23);
+            txtStudentNumber.TabIndex = 6;
+            txtStudentNumber.Click += txtStudentNumber_Click;
+            txtStudentNumber.TextChanged += txtStudentNumber_TextChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(135, 42);
+            label4.Name = "label4";
+            label4.RightToLeft = RightToLeft.Yes;
+            label4.Size = new Size(280, 20);
+            label4.TabIndex = 8;
+            label4.Text = "لطفا اطلاعات دانشجویی خود را وارد نمایید:";
+            // 
+            // lblErrorStudentName
+            // 
+            lblErrorStudentName.AutoSize = true;
+            lblErrorStudentName.Location = new Point(91, 83);
+            lblErrorStudentName.Name = "lblErrorStudentName";
+            lblErrorStudentName.RightToLeft = RightToLeft.Yes;
+            lblErrorStudentName.Size = new Size(0, 15);
+            lblErrorStudentName.TabIndex = 9;
+            // 
+            // lblErrorStudentLastname
+            // 
+            lblErrorStudentLastname.AutoSize = true;
+            lblErrorStudentLastname.Location = new Point(91, 128);
+            lblErrorStudentLastname.Name = "lblErrorStudentLastname";
+            lblErrorStudentLastname.RightToLeft = RightToLeft.Yes;
+            lblErrorStudentLastname.Size = new Size(0, 15);
+            lblErrorStudentLastname.TabIndex = 10;
+            // 
+            // lblErrorStudentNumber
+            // 
+            lblErrorStudentNumber.AutoSize = true;
+            lblErrorStudentNumber.Location = new Point(91, 176);
+            lblErrorStudentNumber.Name = "lblErrorStudentNumber";
+            lblErrorStudentNumber.RightToLeft = RightToLeft.Yes;
+            lblErrorStudentNumber.Size = new Size(0, 15);
+            lblErrorStudentNumber.TabIndex = 11;
             // 
             // Form6
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
-            ClientSize = new Size(408, 305);
+            ClientSize = new Size(427, 323);
+            Controls.Add(lblErrorStudentNumber);
+            Controls.Add(lblErrorStudentLastname);
+            Controls.Add(lblErrorStudentName);
+            Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(txtlastnamedenesh);
-            Controls.Add(btnsavedanesh);
-            Controls.Add(btnbackdanesh);
-            Controls.Add(txtnamedanesh);
-            Controls.Add(label6);
-            Controls.Add(label5);
+            Controls.Add(txtStudentNumber);
             Controls.Add(label2);
+            Controls.Add(txtLastnameStudent);
             Controls.Add(label1);
+            Controls.Add(txtNameStudent);
+            Controls.Add(btnSaveStudent);
+            Controls.Add(btnBackStudent);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             KeyPreview = true;
             MaximizeBox = false;
@@ -159,14 +192,16 @@
         #endregion
         private TextBox txtstdiddanesh;
         private Label label4;
+        private Button btnBackStudent;
+        private Button btnSaveStudent;
+        private TextBox txtNameStudent;
         private Label label1;
         private Label label2;
-        private Label label5;
-        private Label label6;
-        private TextBox txtnamedanesh;
-        private Button btnbackdanesh;
-        private Button btnsavedanesh;
-        private TextBox txtlastnamedenesh;
+        private TextBox txtLastnameStudent;
         private Label label3;
+        private TextBox txtStudentNumber;
+        private Label lblErrorStudentName;
+        private Label lblErrorStudentLastname;
+        private Label lblErrorStudentNumber;
     }
 }

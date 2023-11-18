@@ -31,11 +31,11 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            btnsavesabtnam = new Button();
-            btnbacksabtnam = new Button();
-            cmbdanesh = new ComboBox();
-            cmbterm = new ComboBox();
-            cmbdars = new ComboBox();
+            btnSaveCourseRegistration = new Button();
+            btnBackCourseRegistration = new Button();
+            cmbStudentChoosing = new ComboBox();
+            cmbTermChoosing = new ComboBox();
+            cmbLessonChoosing = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -71,58 +71,58 @@
             label3.TabIndex = 4;
             label3.Text = "انتخاب درس:";
             // 
-            // btnsavesabtnam
+            // btnSaveCourseRegistration
             // 
-            btnsavesabtnam.Location = new Point(296, 225);
-            btnsavesabtnam.Name = "btnsavesabtnam";
-            btnsavesabtnam.Size = new Size(75, 35);
-            btnsavesabtnam.TabIndex = 6;
-            btnsavesabtnam.Text = "ثبت";
-            btnsavesabtnam.UseVisualStyleBackColor = true;
-            btnsavesabtnam.Click += btnsavesabtnam_Click;
+            btnSaveCourseRegistration.Location = new Point(296, 225);
+            btnSaveCourseRegistration.Name = "btnSaveCourseRegistration";
+            btnSaveCourseRegistration.Size = new Size(75, 35);
+            btnSaveCourseRegistration.TabIndex = 6;
+            btnSaveCourseRegistration.Text = "ثبت";
+            btnSaveCourseRegistration.UseVisualStyleBackColor = true;
+            btnSaveCourseRegistration.Click += btnsavesabtnam_Click;
             // 
-            // btnbacksabtnam
+            // btnBackCourseRegistration
             // 
-            btnbacksabtnam.Location = new Point(61, 225);
-            btnbacksabtnam.Name = "btnbacksabtnam";
-            btnbacksabtnam.Size = new Size(75, 35);
-            btnbacksabtnam.TabIndex = 7;
-            btnbacksabtnam.Text = "بازگشت";
-            btnbacksabtnam.UseVisualStyleBackColor = true;
-            btnbacksabtnam.Click += btnbacksabtnam_Click;
+            btnBackCourseRegistration.Location = new Point(61, 225);
+            btnBackCourseRegistration.Name = "btnBackCourseRegistration";
+            btnBackCourseRegistration.Size = new Size(75, 35);
+            btnBackCourseRegistration.TabIndex = 7;
+            btnBackCourseRegistration.Text = "بازگشت";
+            btnBackCourseRegistration.UseVisualStyleBackColor = true;
+            btnBackCourseRegistration.Click += btnbacksabtnam_Click;
             // 
-            // cmbdanesh
+            // cmbStudentChoosing
             // 
-            cmbdanesh.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbdanesh.FormattingEnabled = true;
-            cmbdanesh.Location = new Point(61, 64);
-            cmbdanesh.Name = "cmbdanesh";
-            cmbdanesh.RightToLeft = RightToLeft.Yes;
-            cmbdanesh.Size = new Size(201, 23);
-            cmbdanesh.TabIndex = 8;
-            cmbdanesh.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            cmbStudentChoosing.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStudentChoosing.FormattingEnabled = true;
+            cmbStudentChoosing.Location = new Point(61, 64);
+            cmbStudentChoosing.Name = "cmbStudentChoosing";
+            cmbStudentChoosing.RightToLeft = RightToLeft.Yes;
+            cmbStudentChoosing.Size = new Size(201, 23);
+            cmbStudentChoosing.TabIndex = 8;
+            cmbStudentChoosing.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
-            // cmbterm
+            // cmbTermChoosing
             // 
-            cmbterm.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbterm.FormattingEnabled = true;
-            cmbterm.Location = new Point(61, 104);
-            cmbterm.Name = "cmbterm";
-            cmbterm.RightToLeft = RightToLeft.Yes;
-            cmbterm.Size = new Size(201, 23);
-            cmbterm.TabIndex = 9;
-            cmbterm.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            cmbTermChoosing.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTermChoosing.FormattingEnabled = true;
+            cmbTermChoosing.Location = new Point(61, 104);
+            cmbTermChoosing.Name = "cmbTermChoosing";
+            cmbTermChoosing.RightToLeft = RightToLeft.Yes;
+            cmbTermChoosing.Size = new Size(201, 23);
+            cmbTermChoosing.TabIndex = 9;
+            cmbTermChoosing.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
-            // cmbdars
+            // cmbLessonChoosing
             // 
-            cmbdars.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbdars.FormattingEnabled = true;
-            cmbdars.Location = new Point(61, 150);
-            cmbdars.Name = "cmbdars";
-            cmbdars.RightToLeft = RightToLeft.Yes;
-            cmbdars.Size = new Size(201, 23);
-            cmbdars.TabIndex = 10;
-            cmbdars.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
+            cmbLessonChoosing.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbLessonChoosing.FormattingEnabled = true;
+            cmbLessonChoosing.Location = new Point(61, 150);
+            cmbLessonChoosing.Name = "cmbLessonChoosing";
+            cmbLessonChoosing.RightToLeft = RightToLeft.Yes;
+            cmbLessonChoosing.Size = new Size(201, 23);
+            cmbLessonChoosing.TabIndex = 10;
+            cmbLessonChoosing.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
             // 
             // Form8
             // 
@@ -130,11 +130,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
             ClientSize = new Size(432, 323);
-            Controls.Add(cmbdars);
-            Controls.Add(cmbterm);
-            Controls.Add(cmbdanesh);
-            Controls.Add(btnbacksabtnam);
-            Controls.Add(btnsavesabtnam);
+            Controls.Add(cmbLessonChoosing);
+            Controls.Add(cmbTermChoosing);
+            Controls.Add(cmbStudentChoosing);
+            Controls.Add(btnBackCourseRegistration);
+            Controls.Add(btnSaveCourseRegistration);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -154,10 +154,10 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private Button btnsavesabtnam;
-        private Button btnbacksabtnam;
-        private ComboBox cmbdanesh;
-        private ComboBox cmbterm;
-        private ComboBox cmbdars;
+        private Button btnSaveCourseRegistration;
+        private Button btnBackCourseRegistration;
+        private ComboBox cmbStudentChoosing;
+        private ComboBox cmbTermChoosing;
+        private ComboBox cmbLessonChoosing;
     }
 }

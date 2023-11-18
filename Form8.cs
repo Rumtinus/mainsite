@@ -1,4 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CourseRegistration.Models;
+using mainsite.Models;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,60 +15,64 @@ namespace mainsite
 {
     public partial class Form8 : Form
     {
-        public int? stuId = null;
+        public StudentsRegistrations studentsRegistrations = new StudentsRegistrations();
+        
         public Form8()
         {
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void Form8_Load(object sender, EventArgs e)
         {
 
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
-            conn.Open();
 
-            string q = string.Format("select * from tbldars");
-            SqlCommand cmd = new SqlCommand(q, conn);
-            SqlDataReader dread = cmd.ExecuteReader();
-            while (dread.Read())
+            Lessons l = new Lessons();
+            List<Lessons> lessons = l.all();
+            var dicLesson = new Dictionary<Lessons, string>();
+            foreach (Lessons lesson in lessons)
             {
-                string columndars = dread["Lesson"].ToString();
-                cmbdars.Items.Add(columndars);
+                dicLesson.Add(lesson, lesson.Lesson);
 
             }
-            conn.Close();
-            conn.Open();
-            string a = string.Format("select * from tblterm");
-            SqlCommand cmdd = new SqlCommand(a, conn);
-            SqlDataReader dreadd = cmdd.ExecuteReader();
-            while (dreadd.Read())
-            {
-                string columnterm = dreadd["Term"].ToString();
-                cmbterm.Items.Add(columnterm);
+            cmbLessonChoosing.DataSource = new BindingSource(dicLesson, null);
+            cmbLessonChoosing.DisplayMember = "Value";
+            cmbLessonChoosing.ValueMember = "Key";
+            cmbLessonChoosing.SelectedItem = studentsRegistrations.ID != null ? studentsRegistrations : 0;
 
+
+            Terms T = new Terms();
+            List<Terms> terms = T.all();
+            var dicTerm = new Dictionary<Terms, string>();
+            foreach (Terms term in terms)
+            {
+                dicTerm.Add(term, term.Term.ToString());
 
             }
-            conn.Close();
-            conn.Open();
-            string b = string.Format("select * from tbldanesh");
-            SqlCommand cmddd = new SqlCommand(b, conn);
-            SqlDataReader dreaddd = cmddd.ExecuteReader();
-            while (dreaddd.Read())
+            cmbTermChoosing.DataSource = new BindingSource(dicTerm, null);
+            cmbTermChoosing.DisplayMember = "Value";
+            cmbTermChoosing.ValueMember = "Key";
+            cmbTermChoosing.SelectedItem = studentsRegistrations.ID!=null?studentsRegistrations:0;
+
+
+
+            Students s = new Students();
+            List<Students> students = s.all();
+
+            var dicStudent = new Dictionary<Students, string>();
+
+            foreach (Students student in students)
             {
-                string columndanesh = dreaddd["Firstname"] + " " + dreaddd["Lastname"];
-                cmbdanesh.Items.Add(columndanesh);
+                string Full_name = student.Firstname + " " + student.Lastname + " " + student.StudentNumber;
+                dicStudent.Add(student, Full_name);
 
             }
+            cmbStudentChoosing.DataSource = new BindingSource(dicStudent, null);
+            cmbStudentChoosing.DisplayMember = "Value";
+            cmbStudentChoosing.ValueMember = "Key";
+            cmbStudentChoosing.SelectedItem = studentsRegistrations.ID != null ? studentsRegistrations: 0;
 
-
-
-            conn.Close();
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,15 +96,20 @@ namespace mainsite
 
         private void btnsavesabtnam_Click(object sender, EventArgs e)
         {
-            if (cmbdanesh.Text == "" || cmbdars.Text == "" || cmbterm.Text == "")
+
+            if (cmbStudentChoosing.Text == "" || cmbLessonChoosing.Text == "" || cmbTermChoosing.Text == "")
             {
                 MessageBox.Show("!اطلاعات ناقص می باشد", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            else if (cmbdanesh.Text != "" || cmbdars.Text != "" || cmbterm.Text != "")
+            else 
             {
 
-                save_it();
+                studentsRegistrations.LessonID = ((Lessons)cmbLessonChoosing.SelectedValue).LessonID??0;
+                studentsRegistrations.TermsID = ((Terms)cmbTermChoosing.SelectedValue).TermID ?? 0;
+                studentsRegistrations.StudentsID = ((Students)cmbStudentChoosing.SelectedValue).StudentID ?? 0;
+                studentsRegistrations.CreateAt =  DateTime.Now;
+                studentsRegistrations.save();
                 MessageBox.Show("!دانشجو با موفقیت ثبت شد", "Processed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
@@ -106,38 +117,13 @@ namespace mainsite
 
 
         }
-        private void save_it()
-        {
-            /*SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
-            conn.Open();
-            string q = string.Format("insert into [tblresult] (Name,Term,Lesson) values (N'{0}',{1},N'{2}')", cmbdanesh.Text, cmbterm.Text.ToString(), cmbdars.Text);
-            SqlCommand cmd = new SqlCommand(q, conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();*/
-
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
-            conn.Open();
-            string q = "";
-            if (stuId == null)
-            {
-                q = string.Format("insert into [tblresult] (Name,Term,Lesson) values (N'{0}',{1},N'{2}')", cmbdanesh.Text, cmbterm.Text.ToString(), cmbdars.Text);
-            }
-            else
-            {
-                q = string.Format("update tblresult set Name=N'{0}',Term={1},Lesson=N'{2}' where Id={3}", cmbdanesh.Text, cmbterm.Text.ToString(), cmbdars.Text, stuId);
-            }
-            SqlCommand cmd = new SqlCommand(q, conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
-        }
+        
 
         private void Form8_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode==Keys.Enter )
+            if (e.KeyCode == Keys.Enter)
             {
-                btnsavesabtnam_Click(null,null);
+                btnsavesabtnam_Click(null, null);
             }
             if (e.KeyCode == Keys.Escape)
             {

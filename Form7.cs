@@ -1,4 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CourseRegistration.Models;
+using mainsite.Models;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,71 +21,66 @@ namespace mainsite
             InitializeComponent();
         }
 
-        private void btnbackfehrestdanesh_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void Form7_Load(object sender, EventArgs e)
         {
             this.LoadCombo();
-        }
-
-        private void btneditfehrestdanesh_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Form6 form6 = new Form6();
-            form6.stuId = int.Parse(cmbfehrastdanesh.SelectedValue.ToString());
-            form6.ShowDialog();
-
-        }
-
-        private void btndelfehrestdanesh_Click(object sender, EventArgs e)
-        {
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
-            connection.Open();
-            string q = string.Format("delete from tbldanesh where Id={0}", cmbfehrastdanesh.SelectedValue);
-            SqlCommand cmd = new SqlCommand(q,connection);         
-            cmd.ExecuteNonQuery();
-            connection.Close();
-            this.LoadCombo();
-
-
         }
 
         private void Form7_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                btnbackfehrestdanesh_Click(null, null);
+                btnBackStudentList_Click(null, null);
             }
         }
 
         private void LoadCombo()
         {
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
-            conn.Open();
+            Students s = new Students();
+            List<Students> students = s.all();
 
-            string q = string.Format("select * from tbldanesh");
-            SqlCommand cmd = new SqlCommand(q, conn);
-            SqlDataReader dread = cmd.ExecuteReader();
+            var dict = new Dictionary<Students, string>();
 
-            var dict = new Dictionary<int, string>();
-
-            while (dread.Read())
+            foreach (Students student in students)
             {
-                string Full_name = dread["Firstname"] + " " + dread["Lastname"];
-                dict.Add(int.Parse(dread["Id"].ToString() ?? "0"), Full_name);
+                string Full_name = student.Firstname + " " + student.Lastname + " " + student.StudentNumber;
+                dict.Add(student, Full_name);
 
             }
-            cmbfehrastdanesh.DataSource = new BindingSource(dict, null);
-            cmbfehrastdanesh.DisplayMember = "Value";
-            cmbfehrastdanesh.ValueMember = "Key";
+            cmbStudentList.DataSource = new BindingSource(dict, null);
+            cmbStudentList.DisplayMember = "Value";
+            cmbStudentList.ValueMember = "Key";
 
-            cmbfehrastdanesh.SelectedValue = 0;
-            conn.Close();
+            cmbStudentList.SelectedValue = 0;
+
+        }
+
+        private void btnDeleteStudent_Click(object sender, EventArgs e)
+        {
+            
+            ((Students)cmbStudentList.SelectedValue).hasStudentsRegistrations();
+            if (((Students)cmbStudentList.SelectedValue).hasStudentsRegistrations())
+            {
+                MessageBox.Show("Error","دانشجوی مورد نظر دارای واحد انتخابی می باشد!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            ((Students)cmbStudentList.SelectedValue).delete();
+            this.LoadCombo();
+
+        }
+
+        private void btnEditStudent_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form6 form6 = new Form6();
+            form6.student = (Students)cmbStudentList.SelectedValue;
+            form6.ShowDialog();
+
+        }
+
+        private void btnBackStudentList_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -28,45 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnbacktarifdars = new Button();
-            btnsavedars = new Button();
-            txttarifdars = new TextBox();
+            btnBackLessonPresenting = new Button();
+            btnSaveLesson = new Button();
+            txtLessonPresenting = new TextBox();
             label1 = new Label();
-            label2 = new Label();
+            lblLessonPresenting = new Label();
             SuspendLayout();
             // 
-            // btnbacktarifdars
+            // btnBackLessonPresenting
             // 
-            btnbacktarifdars.Location = new Point(74, 178);
-            btnbacktarifdars.Name = "btnbacktarifdars";
-            btnbacktarifdars.RightToLeft = RightToLeft.No;
-            btnbacktarifdars.Size = new Size(75, 33);
-            btnbacktarifdars.TabIndex = 0;
-            btnbacktarifdars.Text = "بازگشت";
-            btnbacktarifdars.UseVisualStyleBackColor = true;
-            btnbacktarifdars.Click += btnbacktarifdars_Click;
+            btnBackLessonPresenting.Location = new Point(74, 178);
+            btnBackLessonPresenting.Name = "btnBackLessonPresenting";
+            btnBackLessonPresenting.RightToLeft = RightToLeft.No;
+            btnBackLessonPresenting.Size = new Size(75, 33);
+            btnBackLessonPresenting.TabIndex = 0;
+            btnBackLessonPresenting.Text = "بازگشت";
+            btnBackLessonPresenting.UseVisualStyleBackColor = true;
+            btnBackLessonPresenting.Click += btnBackLessonPresenting_Click;
             // 
-            // btnsavedars
+            // btnSaveLesson
             // 
-            btnsavedars.Location = new Point(232, 178);
-            btnsavedars.Name = "btnsavedars";
-            btnsavedars.RightToLeft = RightToLeft.No;
-            btnsavedars.Size = new Size(75, 33);
-            btnsavedars.TabIndex = 1;
-            btnsavedars.Text = "ذخیره";
-            btnsavedars.UseVisualStyleBackColor = true;
-            btnsavedars.Click += btnsavedars_Click;
-            btnsavedars.KeyDown += btnsavedars_KeyDown;
+            btnSaveLesson.Location = new Point(232, 178);
+            btnSaveLesson.Name = "btnSaveLesson";
+            btnSaveLesson.RightToLeft = RightToLeft.No;
+            btnSaveLesson.Size = new Size(75, 33);
+            btnSaveLesson.TabIndex = 1;
+            btnSaveLesson.Text = "ذخیره";
+            btnSaveLesson.UseVisualStyleBackColor = true;
+            btnSaveLesson.Click += btnsavedars_Click;
             // 
-            // txttarifdars
+            // txtLessonPresenting
             // 
-            txttarifdars.Location = new Point(74, 103);
-            txttarifdars.Name = "txttarifdars";
-            txttarifdars.RightToLeft = RightToLeft.Yes;
-            txttarifdars.Size = new Size(233, 23);
-            txttarifdars.TabIndex = 2;
-            txttarifdars.Click += txttarifdars_Click;
-            txttarifdars.TextChanged += textBox1_TextChanged;
+            txtLessonPresenting.Location = new Point(74, 103);
+            txtLessonPresenting.Name = "txtLessonPresenting";
+            txtLessonPresenting.RightToLeft = RightToLeft.Yes;
+            txtLessonPresenting.Size = new Size(233, 23);
+            txtLessonPresenting.TabIndex = 2;
+            txtLessonPresenting.Click += txtLessonPresenting_Click;
             // 
             // label1
             // 
@@ -79,14 +77,14 @@
             label1.TabIndex = 3;
             label1.Text = "لطفا نام درس تعریفی را وارد نمایید:";
             // 
-            // label2
+            // lblLessonPresenting
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(74, 85);
-            label2.Name = "label2";
-            label2.RightToLeft = RightToLeft.Yes;
-            label2.Size = new Size(0, 15);
-            label2.TabIndex = 4;
+            lblLessonPresenting.AutoSize = true;
+            lblLessonPresenting.Location = new Point(74, 85);
+            lblLessonPresenting.Name = "lblLessonPresenting";
+            lblLessonPresenting.RightToLeft = RightToLeft.Yes;
+            lblLessonPresenting.Size = new Size(0, 15);
+            lblLessonPresenting.TabIndex = 4;
             // 
             // Form2
             // 
@@ -94,11 +92,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
             ClientSize = new Size(579, 315);
-            Controls.Add(label2);
+            Controls.Add(lblLessonPresenting);
             Controls.Add(label1);
-            Controls.Add(txttarifdars);
-            Controls.Add(btnsavedars);
-            Controls.Add(btnbacktarifdars);
+            Controls.Add(txtLessonPresenting);
+            Controls.Add(btnSaveLesson);
+            Controls.Add(btnBackLessonPresenting);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             KeyPreview = true;
             MaximizeBox = false;
@@ -112,10 +110,10 @@
 
         #endregion
 
-        private Button btnbacktarifdars;
-        private Button btnsavedars;
-        private TextBox txttarifdars;
+        private Button btnBackLessonPresenting;
+        private Button btnSaveLesson;
+        private TextBox txtLessonPresenting;
         private Label label1;
-        private Label label2;
+        private Label lblLessonPresenting;
     }
 }

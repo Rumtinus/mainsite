@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using mainsite.Models;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace mainsite
     public partial class Form6 : Form
     {
         public int? stuId = null;
+        public Students student = new Students();
         public Form6()
         {
             InitializeComponent();
@@ -21,150 +23,164 @@ namespace mainsite
 
         private void Form6_Load(object sender, EventArgs e)
         {
-            if (stuId != null) {
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
-                conn.Open();
-
-                string q = string.Format("select * from tbldanesh where Id={0}", stuId );
-                SqlCommand cmd = new SqlCommand(q, conn);
-                SqlDataReader dread = cmd.ExecuteReader();
-                if (dread != null)
-                {
-
-                    dread.Read();
-                    txtnamedanesh.Text = dread["Firstname"].ToString();
-                    txtlastnamedenesh.Text = dread["Lastname"].ToString();
-                }
-
+            if (student.StudentID != null)
+            {
+                txtNameStudent.Text = student.Firstname;
+                txtLastnameStudent.Text = student.Lastname;
+                txtStudentNumber.Text = student.StudentNumber.ToString();
             }
-                txtnamedanesh.Select();
+            txtNameStudent.Select();
         }
 
-
-        private void save_it()
-        {
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
-            conn.Open();
-            string q = "";
-            if (stuId == null)
-            {
-                q = string.Format("insert into [tbldanesh] (Firstname , Lastname) values (N'{0}',N'{1}')", txtnamedanesh.Text, txtlastnamedenesh.Text);
-            }
-            else {
-                q = string.Format("update tbldanesh set Firstname=N'{0}',Lastname=N'{1}' where Id={2}", txtnamedanesh.Text, txtlastnamedenesh.Text,stuId);
-            }
-            SqlCommand cmd = new SqlCommand(q, conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtnamedanesh_TextChanged(object sender, EventArgs e)
-        {
-            label6.Text = "";
-            label5.Text = "";
-            Boolean x = txtnamedanesh.Text.Any(char.IsDigit);
-            if (x == true)
-            {
-                txtnamedanesh.ForeColor = Color.Red;
-            }
-            else
-            {
-                txtnamedanesh.ForeColor = Color.Black;
-            }
-        }
-
-        private void btnsavedanesh_Click(object sender, EventArgs e)
-        {
-            if (txtnamedanesh.Text == "")
-            {
-                label5.Text = "لطفا نام دانشجو را وارد نمایید!";
-                label5.ForeColor = Color.Red;
-
-            }
-            else
-            {
-                label5.Text = "";
-            }
-
-
-            if (txtlastnamedenesh.Text == "")
-            {
-                label6.Text = "لطفا نام خانوادگی دانشجو را وارد نمایید!";
-                label6.ForeColor = Color.Red;
-            }
-            else
-            {
-                label6.Text = "";
-            }
-
-            if (txtnamedanesh.ForeColor == Color.Red || txtlastnamedenesh.ForeColor == Color.Red)
-            {
-
-                MessageBox.Show("!نام یا نام خانوادگی نمی تواند شامل عدد باشد", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (txtnamedanesh.Text != "" && txtlastnamedenesh.Text != "")
-            {
-                save_it();
-                txtlastnamedenesh.Text = "";
-                txtnamedanesh.Text = "";
-                label6.Text = "دانشجو با موفقیت ثبت شد!";
-                label6.ForeColor = Color.Green;
-
-
-            }
-        }
-
-        private void btnbackdanesh_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void txtlastnamedenesh_TextChanged(object sender, EventArgs e)
-        {
-            label6.Text = "";
-            label5.Text = "";
-            Boolean x = txtlastnamedenesh.Text.Any(char.IsDigit);
-            if (x == true)
-            {
-                txtlastnamedenesh.ForeColor = Color.Red;
-            }
-            else
-            {
-                txtlastnamedenesh.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtnamedanesh_Click(object sender, EventArgs e)
-        {
-            txtnamedanesh.SelectAll();
-        }
-
-        private void txtlastnamedenesh_Click(object sender, EventArgs e)
-        {
-            txtlastnamedenesh.SelectAll();
-        }
 
         private void Form6_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && txtnamedanesh.ContainsFocus)
+            if (e.KeyCode == Keys.Enter && txtNameStudent.ContainsFocus)
             {
-                txtlastnamedenesh.Focus();
+                txtLastnameStudent.Focus();
             }
-            else if (e.KeyCode == Keys.Enter && txtlastnamedenesh.ContainsFocus)
+            else if (e.KeyCode == Keys.Enter && txtLastnameStudent.ContainsFocus)
             {
-                btnsavedanesh_Click(null,null);
+                txtStudentNumber.Focus();
             }
+            else if (e.KeyCode == Keys.Enter && txtStudentNumber.ContainsFocus)
+            {
+                btnSaveStudent_Click(null, null);
+            }
+
+
+
             if (e.KeyCode == Keys.Escape)
             {
-                btnbackdanesh_Click(null, null);
+                btnBackStudent_Click(null, null);
             }
+        }
+
+        private void btnSaveStudent_Click(object sender, EventArgs e)
+        {
+            if (txtNameStudent.Text == "")
+            {
+                lblErrorStudentName.Text = "لطفا نام دانشجو را وارد نمایید!";
+                lblErrorStudentName.ForeColor = Color.Red;
+
+            }
+            else
+            {
+                lblErrorStudentName.Text = "";
+            }
+
+
+            if (txtLastnameStudent.Text == "")
+            {
+                lblErrorStudentLastname.Text = "لطفا نام خانوادگی دانشجو را وارد نمایید!";
+                lblErrorStudentLastname.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblErrorStudentLastname.Text = "";
+            }
+
+            if (txtStudentNumber.Text == "")
+            {
+                lblErrorStudentLastname.Text = "لطفا شماره دانشجویی خود را وارد نمایید!";
+                lblErrorStudentLastname.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblErrorStudentLastname.Text = "";
+            }
+
+
+            if (txtNameStudent.ForeColor == Color.Red || txtLastnameStudent.ForeColor == Color.Red)
+            {
+
+                MessageBox.Show("!نام یا نام خانوادگی نمی تواند شامل عدد باشد", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }else if (txtStudentNumber.ForeColor == Color.Red)
+            {
+                MessageBox.Show("!شماره دانشجویی نمی تواند شامل حروف باشد", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (txtNameStudent.Text != "" && txtLastnameStudent.Text != "" && txtStudentNumber.Text != "")
+            {
+                this.student.Firstname = txtNameStudent.Text;
+                this.student.Lastname = txtLastnameStudent.Text;
+                this.student.StudentNumber = int.Parse(txtStudentNumber.Text);
+                student.save();
+                txtLastnameStudent.Text = "";
+                txtNameStudent.Text = "";
+                txtStudentNumber.Text = "";
+                lblErrorStudentName.Text = "دانشجو با موفقیت ثبت شد!";
+                lblErrorStudentLastname.ForeColor = Color.Green;
+            }
+        }
+
+        private void txtNameStudent_TextChanged(object sender, EventArgs e)
+        {
+            lblErrorStudentLastname.Text = "";
+            lblErrorStudentName.Text = "";
+            lblErrorStudentNumber.Text = "";
+            Boolean x = txtNameStudent.Text.Any(char.IsDigit);
+            if (x == true)
+            {
+                txtNameStudent.ForeColor = Color.Red;
+            }
+            else
+            {
+                txtNameStudent.ForeColor = Color.Black;
+            }
+
+        }
+
+        private void txtLastnameStudent_TextChanged(object sender, EventArgs e)
+        {
+            lblErrorStudentLastname.Text = "";
+            lblErrorStudentName.Text = "";
+            lblErrorStudentNumber.Text = "";
+            Boolean x = txtLastnameStudent.Text.Any(char.IsDigit);
+            if (x == true)
+            {
+                txtLastnameStudent.ForeColor = Color.Red;
+            }
+            else
+            {
+                txtLastnameStudent.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtStudentNumber_TextChanged(object sender, EventArgs e)
+        {
+            lblErrorStudentLastname.Text = "";
+            lblErrorStudentName.Text = "";
+            lblErrorStudentNumber.Text = "";
+            Boolean x = txtStudentNumber.Text.All(char.IsDigit);
+            if (x != true)
+            {
+                txtStudentNumber.ForeColor = Color.Red;
+            }
+            else
+            {
+                txtStudentNumber.ForeColor = Color.Black;
+            }
+        }
+
+        private void btnBackStudent_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void btnbackdanesh_Click(object sender, EventArgs e) { }
+
+        private void txtNameStudent_Click(object sender, EventArgs e)
+        {
+            txtNameStudent.SelectAll();
+        }
+
+        private void txtLastnameStudent_Click(object sender, EventArgs e)
+        {
+            txtLastnameStudent.SelectAll();
+        }
+
+        private void txtStudentNumber_Click(object sender, EventArgs e)
+        {
+            txtStudentNumber.SelectAll();
         }
     }
 }

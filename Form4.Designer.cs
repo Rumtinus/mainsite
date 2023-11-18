@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnbacktarifterm = new Button();
-            btnsavetarifterm = new Button();
+            btnBackTermPresenting = new Button();
+            btnSaveTerm = new Button();
             label1 = new Label();
-            txttarifterm = new TextBox();
-            label2 = new Label();
+            txtTermPresenting = new TextBox();
+            lblErrorTermPresenting = new Label();
             SuspendLayout();
             // 
-            // btnbacktarifterm
+            // btnBackTermPresenting
             // 
-            btnbacktarifterm.Location = new Point(56, 164);
-            btnbacktarifterm.Name = "btnbacktarifterm";
-            btnbacktarifterm.Size = new Size(75, 30);
-            btnbacktarifterm.TabIndex = 0;
-            btnbacktarifterm.Text = "بازگشت";
-            btnbacktarifterm.UseVisualStyleBackColor = true;
-            btnbacktarifterm.Click += btnbacktarifterm_Click;
+            btnBackTermPresenting.Location = new Point(56, 164);
+            btnBackTermPresenting.Name = "btnBackTermPresenting";
+            btnBackTermPresenting.Size = new Size(75, 30);
+            btnBackTermPresenting.TabIndex = 0;
+            btnBackTermPresenting.Text = "بازگشت";
+            btnBackTermPresenting.UseVisualStyleBackColor = true;
+            btnBackTermPresenting.Click += btnBackTermPresenting_Click;
             // 
-            // btnsavetarifterm
+            // btnSaveTerm
             // 
-            btnsavetarifterm.Location = new Point(198, 164);
-            btnsavetarifterm.Name = "btnsavetarifterm";
-            btnsavetarifterm.Size = new Size(75, 30);
-            btnsavetarifterm.TabIndex = 1;
-            btnsavetarifterm.Text = "ذخیره";
-            btnsavetarifterm.UseVisualStyleBackColor = true;
-            btnsavetarifterm.Click += btnsavetarifterm_Click;
+            btnSaveTerm.Location = new Point(198, 164);
+            btnSaveTerm.Name = "btnSaveTerm";
+            btnSaveTerm.Size = new Size(75, 30);
+            btnSaveTerm.TabIndex = 1;
+            btnSaveTerm.Text = "ذخیره";
+            btnSaveTerm.UseVisualStyleBackColor = true;
+            btnSaveTerm.Click += btnSaveTerm_Click;
             // 
             // label1
             // 
@@ -66,24 +66,24 @@
             label1.TabIndex = 2;
             label1.Text = "لطفا کد ترم تعریفی خود را وارد نمایید:";
             // 
-            // txttarifterm
+            // txtTermPresenting
             // 
-            txttarifterm.Location = new Point(56, 77);
-            txttarifterm.Name = "txttarifterm";
-            txttarifterm.RightToLeft = RightToLeft.Yes;
-            txttarifterm.Size = new Size(217, 23);
-            txttarifterm.TabIndex = 3;
-            txttarifterm.Click += txttarifterm_Click;
-            txttarifterm.TextChanged += txttarifterm_TextChanged;
+            txtTermPresenting.Location = new Point(56, 77);
+            txtTermPresenting.Name = "txtTermPresenting";
+            txtTermPresenting.RightToLeft = RightToLeft.Yes;
+            txtTermPresenting.Size = new Size(217, 23);
+            txtTermPresenting.TabIndex = 3;
+            txtTermPresenting.Click += txtTermPresenting_Click;
+            txtTermPresenting.TextChanged += txtTermPresenting_TextChanged;
             // 
-            // label2
+            // lblErrorTermPresenting
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(56, 59);
-            label2.Name = "label2";
-            label2.RightToLeft = RightToLeft.Yes;
-            label2.Size = new Size(0, 15);
-            label2.TabIndex = 4;
+            lblErrorTermPresenting.AutoSize = true;
+            lblErrorTermPresenting.Location = new Point(56, 59);
+            lblErrorTermPresenting.Name = "lblErrorTermPresenting";
+            lblErrorTermPresenting.RightToLeft = RightToLeft.Yes;
+            lblErrorTermPresenting.Size = new Size(0, 15);
+            lblErrorTermPresenting.TabIndex = 4;
             // 
             // Form4
             // 
@@ -91,11 +91,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
             ClientSize = new Size(553, 267);
-            Controls.Add(label2);
-            Controls.Add(txttarifterm);
+            Controls.Add(lblErrorTermPresenting);
+            Controls.Add(txtTermPresenting);
             Controls.Add(label1);
-            Controls.Add(btnsavetarifterm);
-            Controls.Add(btnbacktarifterm);
+            Controls.Add(btnSaveTerm);
+            Controls.Add(btnBackTermPresenting);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             KeyPreview = true;
             MaximizeBox = false;
@@ -109,10 +109,10 @@
 
         #endregion
 
-        private Button btnbacktarifterm;
-        private Button btnsavetarifterm;
+        private Button btnBackTermPresenting;
+        private Button btnSaveTerm;
         private Label label1;
-        private TextBox txttarifterm;
-        private Label label2;
+        private TextBox txtTermPresenting;
+        private Label lblErrorTermPresenting;
     }
 }

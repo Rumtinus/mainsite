@@ -28,42 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnbackfehrestterm = new Button();
-            btndelfehrestterm = new Button();
-            btneditfehrestterm = new Button();
+            btnBackTermList = new Button();
+            btnDeleteTermList = new Button();
+            btnEditTermList = new Button();
             label1 = new Label();
-            cmbfehrestterm = new ComboBox();
+            cmbTermList = new ComboBox();
             SuspendLayout();
             // 
-            // btnbackfehrestterm
+            // btnBackTermList
             // 
-            btnbackfehrestterm.Location = new Point(61, 194);
-            btnbackfehrestterm.Name = "btnbackfehrestterm";
-            btnbackfehrestterm.Size = new Size(75, 33);
-            btnbackfehrestterm.TabIndex = 0;
-            btnbackfehrestterm.Text = "بازگشت";
-            btnbackfehrestterm.UseVisualStyleBackColor = true;
-            btnbackfehrestterm.Click += btnbackfehrestterm_Click;
+            btnBackTermList.Location = new Point(61, 194);
+            btnBackTermList.Name = "btnBackTermList";
+            btnBackTermList.Size = new Size(75, 33);
+            btnBackTermList.TabIndex = 0;
+            btnBackTermList.Text = "بازگشت";
+            btnBackTermList.UseVisualStyleBackColor = true;
+            btnBackTermList.Click += btnBackTermList_Click;
             // 
-            // btndelfehrestterm
+            // btnDeleteTermList
             // 
-            btndelfehrestterm.Location = new Point(238, 194);
-            btndelfehrestterm.Name = "btndelfehrestterm";
-            btndelfehrestterm.Size = new Size(75, 33);
-            btndelfehrestterm.TabIndex = 1;
-            btndelfehrestterm.Text = "حذف";
-            btndelfehrestterm.UseVisualStyleBackColor = true;
-            btndelfehrestterm.Click += btndelfehrestterm_Click;
+            btnDeleteTermList.Location = new Point(238, 194);
+            btnDeleteTermList.Name = "btnDeleteTermList";
+            btnDeleteTermList.Size = new Size(75, 33);
+            btnDeleteTermList.TabIndex = 1;
+            btnDeleteTermList.Text = "حذف";
+            btnDeleteTermList.UseVisualStyleBackColor = true;
+            btnDeleteTermList.Click += btnDeleteTermList_Click;
             // 
-            // btneditfehrestterm
+            // btnEditTermList
             // 
-            btneditfehrestterm.Location = new Point(411, 194);
-            btneditfehrestterm.Name = "btneditfehrestterm";
-            btneditfehrestterm.Size = new Size(75, 33);
-            btneditfehrestterm.TabIndex = 2;
-            btneditfehrestterm.Text = "ویرایش";
-            btneditfehrestterm.UseVisualStyleBackColor = true;
-            btneditfehrestterm.Click += btneditfehrestterm_Click;
+            btnEditTermList.Location = new Point(411, 194);
+            btnEditTermList.Name = "btnEditTermList";
+            btnEditTermList.Size = new Size(75, 33);
+            btnEditTermList.TabIndex = 2;
+            btnEditTermList.Text = "ویرایش";
+            btnEditTermList.UseVisualStyleBackColor = true;
+            btnEditTermList.Click += btnEditTermList_Click;
             // 
             // label1
             // 
@@ -76,15 +76,15 @@
             label1.TabIndex = 3;
             label1.Text = "فهرست ترم های تعریف شده:";
             // 
-            // cmbfehrestterm
+            // cmbTermList
             // 
-            cmbfehrestterm.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbfehrestterm.FormattingEnabled = true;
-            cmbfehrestterm.Location = new Point(61, 90);
-            cmbfehrestterm.Name = "cmbfehrestterm";
-            cmbfehrestterm.RightToLeft = RightToLeft.Yes;
-            cmbfehrestterm.Size = new Size(178, 23);
-            cmbfehrestterm.TabIndex = 4;
+            cmbTermList.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTermList.FormattingEnabled = true;
+            cmbTermList.Location = new Point(61, 90);
+            cmbTermList.Name = "cmbTermList";
+            cmbTermList.RightToLeft = RightToLeft.Yes;
+            cmbTermList.Size = new Size(178, 23);
+            cmbTermList.TabIndex = 4;
             // 
             // Form5
             // 
@@ -92,11 +92,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
             ClientSize = new Size(533, 313);
-            Controls.Add(cmbfehrestterm);
+            Controls.Add(cmbTermList);
             Controls.Add(label1);
-            Controls.Add(btneditfehrestterm);
-            Controls.Add(btndelfehrestterm);
-            Controls.Add(btnbackfehrestterm);
+            Controls.Add(btnEditTermList);
+            Controls.Add(btnDeleteTermList);
+            Controls.Add(btnBackTermList);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             KeyPreview = true;
             MaximizeBox = false;
@@ -110,10 +110,10 @@
 
         #endregion
 
-        private Button btnbackfehrestterm;
-        private Button btndelfehrestterm;
-        private Button btneditfehrestterm;
+        private Button btnBackTermList;
+        private Button btnDeleteTermList;
+        private Button btnEditTermList;
         private Label label1;
-        private ComboBox cmbfehrestterm;
+        private ComboBox cmbTermList;
     }
 }

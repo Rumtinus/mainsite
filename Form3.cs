@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CourseRegistration.Models;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,81 +15,67 @@ namespace mainsite
 {
     public partial class Form3 : Form
     {
-
+        public int? darsid = null;
         public Form3()
         {
             InitializeComponent();
         }
 
-        private void btnbackdars_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
-        private void cmbtarifdars_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void cmbtarifdars_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Form3_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                btnbackdars_Click(null, null);
+                btnBackLessonList_Click(null, null);
             }
         }
 
-        private void btndeldars_Click(object sender, EventArgs e)
-        {
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
-            connection.Open();
-            string q = string.Format("delete from tbldars where Id={0}", cmbtarifdars.SelectedValue);
-            SqlCommand cmd = new SqlCommand(q, connection);
-            cmd.ExecuteNonQuery();
-            connection.Close();
-            loadcombo();
-        }
+        
         private void loadcombo()
         {
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
-            conn.Open();
-
-            string q = string.Format("select * from tbldars");
-            SqlCommand cmd = new SqlCommand(q, conn);
-            SqlDataReader dread = cmd.ExecuteReader();
-            var dic = new Dictionary<int, string>();
-            while (dread.Read())
+            Lessons l = new Lessons();
+            List<Lessons> lessons = l.all();
+            var dic = new Dictionary<Lessons, string>();
+            foreach (Lessons lesson in lessons)
             {
-                string dars = dread["Lesson"].ToString();
-                dic.Add(int.Parse(dread["Id"].ToString() ?? "0"), dars);
+                dic.Add(lesson, lesson.Lesson);
 
             }
-            cmbtarifdars.DataSource = new BindingSource(dic, null);
-            cmbtarifdars.DisplayMember = "Value";
-            cmbtarifdars.ValueMember = "Key";
-            cmbtarifdars.SelectedValue = 0;
-            conn.Close();
-        }
-
-        private void btneditdars_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Form2 form2 = new Form2();
-            form2.darsId = int.Parse(cmbtarifdars.SelectedValue.ToString());
-            form2.ShowDialog();
+            cmbLessonPresenting.DataSource = new BindingSource(dic, null);
+            cmbLessonPresenting.DisplayMember = "Value";
+            cmbLessonPresenting.ValueMember = "Key";
+            cmbLessonPresenting.SelectedValue = 0;
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {
             loadcombo();
+        }
+
+        private void btnBackLessonList_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDeleteLessonList_Click(object sender, EventArgs e)
+        {
+            ((Lessons)cmbLessonPresenting.SelectedValue).hasStudentsRegistrations();
+            if (((Lessons)cmbLessonPresenting.SelectedValue).hasStudentsRegistrations())
+            {
+                MessageBox.Show("درس مورد نظر توسط دانشجویان انتخاب شده است!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            ((Lessons)cmbLessonPresenting.SelectedValue).delete();
+            this.loadcombo();
+        }
+
+        private void btnEditLessonList_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form2 form2 = new Form2();
+            form2.lesson = (Lessons)cmbLessonPresenting.SelectedValue;
+            form2.ShowDialog();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CourseRegistration.Models;
+using mainsite.Models;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +20,7 @@ namespace mainsite
             InitializeComponent();
         }
 
-        private void btnbackfehrestterm_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        
         private void Form5_Load(object sender, EventArgs e)
         {
             loadcombo();
@@ -32,50 +30,54 @@ namespace mainsite
         {
             if (e.KeyCode == Keys.Escape)
             {
-                btnbackfehrestterm_Click(null, null);
+                btnBackTermList_Click(null, null);
             }
         }
 
-        private void btndelfehrestterm_Click(object sender, EventArgs e)
-        {
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
-            connection.Open();
-            string q = string.Format("delete from tblterm where Id={0}", cmbfehrestterm.SelectedValue);
-            SqlCommand cmd = new SqlCommand(q, connection);
-            cmd.ExecuteNonQuery();
-            connection.Close();
-            loadcombo();
-        }
+
         private void loadcombo()
         {
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
-            conn.Open();
 
-            string q = string.Format("select * from tblterm");
-            SqlCommand cmd = new SqlCommand(q, conn);
-            SqlDataReader dread = cmd.ExecuteReader();
-            var dic = new Dictionary<int, string>();
-            while (dread.Read())
+            Terms T = new Terms();
+            List<Terms> terms = T.all();
+            var dic = new Dictionary<Terms, string>();
+            foreach (Terms term in terms)
             {
-                string term = dread["Term"].ToString();
-                dic.Add(int.Parse(dread["Id"].ToString() ?? "0"), term);
+                dic.Add(term, term.Term.ToString());
 
             }
-            cmbfehrestterm.DataSource = new BindingSource(dic, null);
-            cmbfehrestterm.DisplayMember = "Value";
-            cmbfehrestterm.ValueMember = "Key";
-            cmbfehrestterm.SelectedValue = 0;
-            conn.Close();
+            cmbTermList.DataSource = new BindingSource(dic, null);
+            cmbTermList.DisplayMember = "Value";
+            cmbTermList.ValueMember = "Key";
+            cmbTermList.SelectedValue = 0;
         }
 
-        private void btneditfehrestterm_Click(object sender, EventArgs e)
+        private void btnBackTermList_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnEditTermList_Click(object sender, EventArgs e)
         {
             this.Close();
             Form4 form4 = new Form4();
-            form4.termId = int.Parse(cmbfehrestterm.SelectedValue.ToString());
+            form4.Term = (Terms)cmbTermList.SelectedValue;
             form4.ShowDialog();
+
+        }
+
+        private void btnDeleteTermList_Click(object sender, EventArgs e)
+        {
+            
+            ((Terms)cmbTermList.SelectedValue).hasStudentsRegistrations();
+            if (((Terms)cmbTermList.SelectedValue).hasStudentsRegistrations())
+            {
+                MessageBox.Show("Error","ترم مورد توسط دانشجویان انتخاب شده است!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            ((Terms)cmbTermList.SelectedValue).delete();
+            this.loadcombo();
+
         }
     }
 }

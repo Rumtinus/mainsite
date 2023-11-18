@@ -2009,9 +2009,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Visual studio\\Samples\\mainsite\\mainsite.csproj",
-      "projectName": "mainsite",
-      "projectPath": "C:\\Visual studio\\Samples\\mainsite\\mainsite.csproj",
+      "projectUniqueName": "C:\\Visual studio\\Samples\\mainsite\\CourseRegistration.csproj",
+      "projectName": "CourseRegistration",
+      "projectPath": "C:\\Visual studio\\Samples\\mainsite\\CourseRegistration.csproj",
       "packagesPath": "C:\\Users\\11\\.nuget\\packages\\",
       "outputPath": "C:\\Visual studio\\Samples\\mainsite\\obj\\",
       "projectStyle": "PackageReference",

@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dataGridViewRegistration = new DataGridView();
             label1 = new Label();
-            btnbackakharin = new Button();
-            btndel = new Button();
-            btnedit = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnBackRegistrationList = new Button();
+            btnDeleteRegistrationList = new Button();
+            btnEditRegistrationList = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewRegistration).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewRegistration
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(35, 107);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RightToLeft = RightToLeft.Yes;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(447, 193);
-            dataGridView1.TabIndex = 0;
+            dataGridViewRegistration.AllowUserToAddRows = false;
+            dataGridViewRegistration.AllowUserToDeleteRows = false;
+            dataGridViewRegistration.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewRegistration.Location = new Point(35, 107);
+            dataGridViewRegistration.Name = "dataGridViewRegistration";
+            dataGridViewRegistration.ReadOnly = true;
+            dataGridViewRegistration.RightToLeft = RightToLeft.Yes;
+            dataGridViewRegistration.RowTemplate.Height = 25;
+            dataGridViewRegistration.Size = new Size(447, 193);
+            dataGridViewRegistration.TabIndex = 0;
             // 
             // label1
             // 
@@ -60,35 +60,35 @@
             label1.TabIndex = 1;
             label1.Text = "آخرین وضعیت ثبت نامی ها:";
             // 
-            // btnbackakharin
+            // btnBackRegistrationList
             // 
-            btnbackakharin.Location = new Point(46, 46);
-            btnbackakharin.Name = "btnbackakharin";
-            btnbackakharin.Size = new Size(65, 28);
-            btnbackakharin.TabIndex = 2;
-            btnbackakharin.Text = "بازگشت";
-            btnbackakharin.UseVisualStyleBackColor = true;
-            btnbackakharin.Click += btnbackakharin_Click;
+            btnBackRegistrationList.Location = new Point(46, 46);
+            btnBackRegistrationList.Name = "btnBackRegistrationList";
+            btnBackRegistrationList.Size = new Size(65, 28);
+            btnBackRegistrationList.TabIndex = 2;
+            btnBackRegistrationList.Text = "بازگشت";
+            btnBackRegistrationList.UseVisualStyleBackColor = true;
+            btnBackRegistrationList.Click += btnbackakharin_Click;
             // 
-            // btndel
+            // btnDeleteRegistrationList
             // 
-            btndel.Location = new Point(128, 46);
-            btndel.Name = "btndel";
-            btndel.Size = new Size(65, 28);
-            btndel.TabIndex = 3;
-            btndel.Text = "حذف";
-            btndel.UseVisualStyleBackColor = true;
-            btndel.Click += btndel_Click;
+            btnDeleteRegistrationList.Location = new Point(128, 46);
+            btnDeleteRegistrationList.Name = "btnDeleteRegistrationList";
+            btnDeleteRegistrationList.Size = new Size(65, 28);
+            btnDeleteRegistrationList.TabIndex = 3;
+            btnDeleteRegistrationList.Text = "حذف";
+            btnDeleteRegistrationList.UseVisualStyleBackColor = true;
+            btnDeleteRegistrationList.Click += btndel_Click;
             // 
-            // btnedit
+            // btnEditRegistrationList
             // 
-            btnedit.Location = new Point(208, 44);
-            btnedit.Name = "btnedit";
-            btnedit.Size = new Size(65, 28);
-            btnedit.TabIndex = 4;
-            btnedit.Text = "ویرایش";
-            btnedit.UseVisualStyleBackColor = true;
-            btnedit.Click += btnedit_Click;
+            btnEditRegistrationList.Location = new Point(208, 46);
+            btnEditRegistrationList.Name = "btnEditRegistrationList";
+            btnEditRegistrationList.Size = new Size(65, 28);
+            btnEditRegistrationList.TabIndex = 4;
+            btnEditRegistrationList.Text = "ویرایش";
+            btnEditRegistrationList.UseVisualStyleBackColor = true;
+            btnEditRegistrationList.Click += btnedit_Click;
             // 
             // Form9
             // 
@@ -96,28 +96,28 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
             ClientSize = new Size(498, 322);
-            Controls.Add(btnedit);
-            Controls.Add(btndel);
-            Controls.Add(btnbackakharin);
+            Controls.Add(btnEditRegistrationList);
+            Controls.Add(btnDeleteRegistrationList);
+            Controls.Add(btnBackRegistrationList);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewRegistration);
             KeyPreview = true;
             MaximizeBox = false;
             Name = "Form9";
             Text = "Form9";
             Load += Form9_Load;
             KeyUp += Form9_KeyUp;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewRegistration).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewRegistration;
         private Label label1;
-        private Button btnbackakharin;
-        private Button btndel;
-        private Button btnedit;
+        private Button btnBackRegistrationList;
+        private Button btnDeleteRegistrationList;
+        private Button btnEditRegistrationList;
     }
 }

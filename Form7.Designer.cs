@@ -28,42 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnbackfehrestdanesh = new Button();
-            btndelfehrestdanesh = new Button();
-            btneditfehrestdanesh = new Button();
+            btnBackStudentList = new Button();
+            btnDeleteStudent = new Button();
+            btnEditStudent = new Button();
             label1 = new Label();
-            cmbfehrastdanesh = new ComboBox();
+            cmbStudentList = new ComboBox();
             SuspendLayout();
             // 
-            // btnbackfehrestdanesh
+            // btnBackStudentList
             // 
-            btnbackfehrestdanesh.Location = new Point(76, 152);
-            btnbackfehrestdanesh.Name = "btnbackfehrestdanesh";
-            btnbackfehrestdanesh.Size = new Size(79, 31);
-            btnbackfehrestdanesh.TabIndex = 0;
-            btnbackfehrestdanesh.Text = "بازگشت";
-            btnbackfehrestdanesh.UseVisualStyleBackColor = true;
-            btnbackfehrestdanesh.Click += btnbackfehrestdanesh_Click;
+            btnBackStudentList.Location = new Point(76, 152);
+            btnBackStudentList.Name = "btnBackStudentList";
+            btnBackStudentList.Size = new Size(79, 31);
+            btnBackStudentList.TabIndex = 0;
+            btnBackStudentList.Text = "بازگشت";
+            btnBackStudentList.UseVisualStyleBackColor = true;
+            btnBackStudentList.Click += btnBackStudentList_Click;
             // 
-            // btndelfehrestdanesh
+            // btnDeleteStudent
             // 
-            btndelfehrestdanesh.Location = new Point(242, 152);
-            btndelfehrestdanesh.Name = "btndelfehrestdanesh";
-            btndelfehrestdanesh.Size = new Size(79, 31);
-            btndelfehrestdanesh.TabIndex = 1;
-            btndelfehrestdanesh.Text = "حذف";
-            btndelfehrestdanesh.UseVisualStyleBackColor = true;
-            btndelfehrestdanesh.Click += btndelfehrestdanesh_Click;
+            btnDeleteStudent.Location = new Point(242, 152);
+            btnDeleteStudent.Name = "btnDeleteStudent";
+            btnDeleteStudent.Size = new Size(79, 31);
+            btnDeleteStudent.TabIndex = 1;
+            btnDeleteStudent.Text = "حذف";
+            btnDeleteStudent.UseVisualStyleBackColor = true;
+            btnDeleteStudent.Click += btnDeleteStudent_Click;
             // 
-            // btneditfehrestdanesh
+            // btnEditStudent
             // 
-            btneditfehrestdanesh.Location = new Point(392, 152);
-            btneditfehrestdanesh.Name = "btneditfehrestdanesh";
-            btneditfehrestdanesh.Size = new Size(79, 31);
-            btneditfehrestdanesh.TabIndex = 2;
-            btneditfehrestdanesh.Text = "ویرایش";
-            btneditfehrestdanesh.UseVisualStyleBackColor = true;
-            btneditfehrestdanesh.Click += btneditfehrestdanesh_Click;
+            btnEditStudent.Location = new Point(392, 152);
+            btnEditStudent.Name = "btnEditStudent";
+            btnEditStudent.Size = new Size(79, 31);
+            btnEditStudent.TabIndex = 2;
+            btnEditStudent.Text = "ویرایش";
+            btnEditStudent.UseVisualStyleBackColor = true;
+            btnEditStudent.Click += btnEditStudent_Click;
             // 
             // label1
             // 
@@ -76,15 +76,15 @@
             label1.TabIndex = 3;
             label1.Text = "فهرست داشجویان:";
             // 
-            // cmbfehrastdanesh
+            // cmbStudentList
             // 
-            cmbfehrastdanesh.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbfehrastdanesh.FormattingEnabled = true;
-            cmbfehrastdanesh.Location = new Point(76, 63);
-            cmbfehrastdanesh.Name = "cmbfehrastdanesh";
-            cmbfehrastdanesh.RightToLeft = RightToLeft.Yes;
-            cmbfehrastdanesh.Size = new Size(245, 23);
-            cmbfehrastdanesh.TabIndex = 4;
+            cmbStudentList.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStudentList.FormattingEnabled = true;
+            cmbStudentList.Location = new Point(76, 63);
+            cmbStudentList.Name = "cmbStudentList";
+            cmbStudentList.RightToLeft = RightToLeft.Yes;
+            cmbStudentList.Size = new Size(245, 23);
+            cmbStudentList.TabIndex = 4;
             // 
             // Form7
             // 
@@ -92,11 +92,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
             ClientSize = new Size(560, 259);
-            Controls.Add(cmbfehrastdanesh);
+            Controls.Add(cmbStudentList);
             Controls.Add(label1);
-            Controls.Add(btneditfehrestdanesh);
-            Controls.Add(btndelfehrestdanesh);
-            Controls.Add(btnbackfehrestdanesh);
+            Controls.Add(btnEditStudent);
+            Controls.Add(btnDeleteStudent);
+            Controls.Add(btnBackStudentList);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             KeyPreview = true;
             MaximizeBox = false;
@@ -110,10 +110,10 @@
 
         #endregion
 
-        private Button btnbackfehrestdanesh;
-        private Button btndelfehrestdanesh;
-        private Button btneditfehrestdanesh;
+        private Button btnBackStudentList;
+        private Button btnDeleteStudent;
+        private Button btnEditStudent;
         private Label label1;
-        private ComboBox cmbfehrastdanesh;
+        private ComboBox cmbStudentList;
     }
 }
