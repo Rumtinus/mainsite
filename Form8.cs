@@ -16,7 +16,7 @@ namespace mainsite
     public partial class Form8 : Form
     {
         public StudentsRegistrations studentsRegistrations = new StudentsRegistrations();
-        
+
         public Form8()
         {
             InitializeComponent();
@@ -39,7 +39,12 @@ namespace mainsite
             cmbLessonChoosing.DataSource = new BindingSource(dicLesson, null);
             cmbLessonChoosing.DisplayMember = "Value";
             cmbLessonChoosing.ValueMember = "Key";
-            cmbLessonChoosing.SelectedItem = studentsRegistrations.ID != null ? studentsRegistrations : 0;
+
+            if (studentsRegistrations.ID != null)
+                cmbLessonChoosing.SelectedItem = studentsRegistrations;
+            else
+                cmbLessonChoosing.SelectedValue = 0;
+
 
 
             Terms T = new Terms();
@@ -53,7 +58,11 @@ namespace mainsite
             cmbTermChoosing.DataSource = new BindingSource(dicTerm, null);
             cmbTermChoosing.DisplayMember = "Value";
             cmbTermChoosing.ValueMember = "Key";
-            cmbTermChoosing.SelectedItem = studentsRegistrations.ID!=null?studentsRegistrations:0;
+
+            if (studentsRegistrations.ID != null)
+                cmbTermChoosing.SelectedItem = studentsRegistrations;
+            else
+                cmbTermChoosing.SelectedValue = 0;
 
 
 
@@ -71,64 +80,48 @@ namespace mainsite
             cmbStudentChoosing.DataSource = new BindingSource(dicStudent, null);
             cmbStudentChoosing.DisplayMember = "Value";
             cmbStudentChoosing.ValueMember = "Key";
-            cmbStudentChoosing.SelectedItem = studentsRegistrations.ID != null ? studentsRegistrations: 0;
+
+            if (studentsRegistrations.ID != null)
+                cmbStudentChoosing.SelectedItem = studentsRegistrations;
+            else
+                cmbStudentChoosing.SelectedValue = 0;
 
         }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void btnbacksabtnam_Click(object sender, EventArgs e)
-        {
-
-            this.Close();
-        }
-
-        private void btnsavesabtnam_Click(object sender, EventArgs e)
-        {
-
-            if (cmbStudentChoosing.Text == "" || cmbLessonChoosing.Text == "" || cmbTermChoosing.Text == "")
-            {
-                MessageBox.Show("!اطلاعات ناقص می باشد", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            else 
-            {
-
-                studentsRegistrations.LessonID = ((Lessons)cmbLessonChoosing.SelectedValue).LessonID??0;
-                studentsRegistrations.TermsID = ((Terms)cmbTermChoosing.SelectedValue).TermID ?? 0;
-                studentsRegistrations.StudentsID = ((Students)cmbStudentChoosing.SelectedValue).StudentID ?? 0;
-                studentsRegistrations.CreateAt =  DateTime.Now;
-                studentsRegistrations.save();
-                MessageBox.Show("!دانشجو با موفقیت ثبت شد", "Processed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-
-
-
-        }
-        
 
         private void Form8_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnsavesabtnam_Click(null, null);
+                btnSaveCourseRegistration_Click(null, null);
             }
             if (e.KeyCode == Keys.Escape)
             {
-                btnbacksabtnam_Click(null, null);
+                btnBackCourseRegistration_Click(null, null);
             }
+        }
+
+        private void btnSaveCourseRegistration_Click(object sender, EventArgs e)
+        {
+            if (cmbStudentChoosing.Text == "" || cmbLessonChoosing.Text == "" || cmbTermChoosing.Text == "")
+            {
+                MessageBox.Show("!اطلاعات ناقص می باشد", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+
+                studentsRegistrations.LessonsID = ((Lessons)cmbLessonChoosing.SelectedValue).LessonID ?? 0;
+                studentsRegistrations.TermsID = ((Terms)cmbTermChoosing.SelectedValue).TermID ?? 0;
+                studentsRegistrations.StudentsID = ((Students)cmbStudentChoosing.SelectedValue).StudentID ?? 0;
+                studentsRegistrations.CreateAt = DateTime.Now;
+                studentsRegistrations.save();
+                MessageBox.Show("!دانشجو با موفقیت ثبت شد", "Processed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnBackCourseRegistration_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

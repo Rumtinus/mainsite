@@ -22,7 +22,7 @@ namespace CourseRegistration.Models
     public class StudentsRegistrations : Table
     {
         public int? ID { get; set; }
-        public int LessonID { get; set; }
+        public int LessonsID { get; set; }
         public int TermsID { get; set; }
         public int StudentsID { get; set; }
         public DateTime CreateAt { get; set; }
@@ -43,7 +43,7 @@ namespace CourseRegistration.Models
             {
                 StudentsRegistrations temp = new StudentsRegistrations();
                 temp.ID = int.Parse(reader["ID"].ToString());
-                temp.LessonID = int.Parse(reader["LessonID"].ToString());
+                temp.LessonsID = int.Parse(reader["LessonsID"].ToString());
                 temp.TermsID = int.Parse(reader["TermsID"].ToString());
                 temp.StudentsID = int.Parse(reader["StudentsID"].ToString());
                 temp.CreateAt = DateTime.Parse(reader["CreateAt"].ToString());
@@ -65,7 +65,7 @@ namespace CourseRegistration.Models
             {
                 reader.Read(); 
                 this.ID = int.Parse(reader["ID"].ToString());
-                this.LessonID = int.Parse(reader["LessonID"].ToString());
+                this.LessonsID = int.Parse(reader["LessonsID"].ToString());
                 this.TermsID = int.Parse(reader["TermsID"].ToString());
                 this.StudentsID = int.Parse(reader["StudentsID"].ToString());
                 this.CreateAt = DateTime.Parse(reader["CreateAt"].ToString());
@@ -82,11 +82,11 @@ namespace CourseRegistration.Models
             string q;
             if (ID == null)
             {
-                q = string.Format("INSERT into Students_registrations (LessonID, TermsID, StudentsID, CreateAt) values ({0},{1},{2},'{3}')  ", this.LessonID, this.TermsID, this.StudentsID, this.CreateAt.ToString());
+                q = string.Format("INSERT into Students_registrations (LessonsID, TermsID, StudentsID, CreateAt) values ({0},{1},{2},'{3}')  ", this.LessonsID, this.TermsID, this.StudentsID, this.CreateAt.ToString());
             }
             else
             {
-                q = string.Format("UPDATE Students_registrations set LessonID={0},TermsID={1},StudentsID={2},CreateAt='{3}' where ID={4}", this.LessonID, this.TermsID, this.StudentsID, this.CreateAt.ToString(), this.ID);
+                q = string.Format("UPDATE Students_registrations set LessonsID={0},TermsID={1},StudentsID={2},CreateAt='{3}' where ID={4}", this.LessonsID, this.TermsID, this.StudentsID, this.CreateAt.ToString(), this.ID);
             }
             _database.QueryNonResult(q);
             _database.disConnect();
@@ -112,7 +112,7 @@ namespace CourseRegistration.Models
         public void getLesson()
         {
             this.lesson=new Lessons();
-            this.lesson.get(this.LessonID);
+            this.lesson.get(this.LessonsID);
         }
         
         public void getTerm()

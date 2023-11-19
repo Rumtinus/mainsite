@@ -44,7 +44,6 @@
             dataGridViewRegistration.Location = new Point(35, 107);
             dataGridViewRegistration.Name = "dataGridViewRegistration";
             dataGridViewRegistration.ReadOnly = true;
-            dataGridViewRegistration.RightToLeft = RightToLeft.Yes;
             dataGridViewRegistration.RowTemplate.Height = 25;
             dataGridViewRegistration.Size = new Size(447, 193);
             dataGridViewRegistration.TabIndex = 0;
@@ -68,7 +67,7 @@
             btnBackRegistrationList.TabIndex = 2;
             btnBackRegistrationList.Text = "بازگشت";
             btnBackRegistrationList.UseVisualStyleBackColor = true;
-            btnBackRegistrationList.Click += btnbackakharin_Click;
+            btnBackRegistrationList.Click += btnBackRegistrationList_Click;
             // 
             // btnDeleteRegistrationList
             // 
@@ -78,7 +77,7 @@
             btnDeleteRegistrationList.TabIndex = 3;
             btnDeleteRegistrationList.Text = "حذف";
             btnDeleteRegistrationList.UseVisualStyleBackColor = true;
-            btnDeleteRegistrationList.Click += btndel_Click;
+            btnDeleteRegistrationList.Click += btnDeleteRegistrationList_Click;
             // 
             // btnEditRegistrationList
             // 
@@ -88,7 +87,7 @@
             btnEditRegistrationList.TabIndex = 4;
             btnEditRegistrationList.Text = "ویرایش";
             btnEditRegistrationList.UseVisualStyleBackColor = true;
-            btnEditRegistrationList.Click += btnedit_Click;
+            btnEditRegistrationList.Click += btnEditRegistrationList_Click;
             // 
             // Form9
             // 

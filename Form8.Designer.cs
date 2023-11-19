@@ -79,7 +79,7 @@
             btnSaveCourseRegistration.TabIndex = 6;
             btnSaveCourseRegistration.Text = "ثبت";
             btnSaveCourseRegistration.UseVisualStyleBackColor = true;
-            btnSaveCourseRegistration.Click += btnsavesabtnam_Click;
+            btnSaveCourseRegistration.Click += btnSaveCourseRegistration_Click;
             // 
             // btnBackCourseRegistration
             // 
@@ -89,7 +89,7 @@
             btnBackCourseRegistration.TabIndex = 7;
             btnBackCourseRegistration.Text = "بازگشت";
             btnBackCourseRegistration.UseVisualStyleBackColor = true;
-            btnBackCourseRegistration.Click += btnbacksabtnam_Click;
+            btnBackCourseRegistration.Click += btnBackCourseRegistration_Click;
             // 
             // cmbStudentChoosing
             // 
@@ -100,7 +100,6 @@
             cmbStudentChoosing.RightToLeft = RightToLeft.Yes;
             cmbStudentChoosing.Size = new Size(201, 23);
             cmbStudentChoosing.TabIndex = 8;
-            cmbStudentChoosing.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // cmbTermChoosing
             // 
@@ -111,7 +110,6 @@
             cmbTermChoosing.RightToLeft = RightToLeft.Yes;
             cmbTermChoosing.Size = new Size(201, 23);
             cmbTermChoosing.TabIndex = 9;
-            cmbTermChoosing.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // cmbLessonChoosing
             // 
@@ -122,7 +120,6 @@
             cmbLessonChoosing.RightToLeft = RightToLeft.Yes;
             cmbLessonChoosing.Size = new Size(201, 23);
             cmbLessonChoosing.TabIndex = 10;
-            cmbLessonChoosing.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
             // 
             // Form8
             // 

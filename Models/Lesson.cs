@@ -57,7 +57,7 @@ namespace CourseRegistration.Models
             string q;
             if (this.LessonID == null)
             {
-                q = string.Format("INSERT into [Lessons] (Lesson) values('{0}')", this.Lesson);
+                q = string.Format("INSERT into [Lessons] (Lesson) values(N'{0}')", this.Lesson);
             }
             else
             {
@@ -80,15 +80,15 @@ namespace CourseRegistration.Models
             string q = string.Format("SELECT * from [Students_Registrations] where LessonID={0}", this.LessonID);
             SqlDataReader reader = _database.QueryResult(q);
 
-            if (reader != null)
+            if (reader.HasRows == true)
             {
-                reader.Read();
-                
+                _database.disConnect();
                 return true;
 
             }
             _database.disConnect();
             return false;
+            
 
         }
     }

@@ -86,14 +86,15 @@ namespace mainsite.Models
             _database.connect();
             string q = string.Format("SELECT * from [Students_Registrations] where StudentsID={0}", this.StudentID);
             SqlDataReader reader = _database.QueryResult(q);
-            if (reader != null)
+            if (reader.HasRows == true)
             {
-                reader.Read();
+                _database.disConnect();
                 return true;
+
             }
             _database.disConnect();
             return false;
-            
+
         }
     }
 }

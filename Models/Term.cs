@@ -77,14 +77,15 @@ namespace CourseRegistration.Models
             _database.connect();
             string q = string.Format("SELECT * from [Students_Registrations] where TermsID={0}", this.TermID);
             SqlDataReader reader = _database.QueryResult(q);
-            if (reader != null)
+            if (reader.HasRows == true)
             {
-                reader.Read();
+                _database.disConnect();
                 return true;
+
             }
             _database.disConnect();
             return false;
-            
+
         }
     }
 }

@@ -95,7 +95,8 @@ namespace mainsite
             {
 
                 MessageBox.Show("!نام یا نام خانوادگی نمی تواند شامل عدد باشد", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }else if (txtStudentNumber.ForeColor == Color.Red)
+            }
+            else if (txtStudentNumber.ForeColor == Color.Red)
             {
                 MessageBox.Show("!شماره دانشجویی نمی تواند شامل حروف باشد", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -111,6 +112,7 @@ namespace mainsite
                 lblErrorStudentName.Text = "دانشجو با موفقیت ثبت شد!";
                 lblErrorStudentLastname.ForeColor = Color.Green;
             }
+            txtNameStudent.Select();
         }
 
         private void txtNameStudent_TextChanged(object sender, EventArgs e)
@@ -166,7 +168,7 @@ namespace mainsite
         {
             this.Close();
         }
-        private void btnbackdanesh_Click(object sender, EventArgs e) { }
+        
 
         private void txtNameStudent_Click(object sender, EventArgs e)
         {

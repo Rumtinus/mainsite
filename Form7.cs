@@ -61,7 +61,7 @@ namespace mainsite
             ((Students)cmbStudentList.SelectedValue).hasStudentsRegistrations();
             if (((Students)cmbStudentList.SelectedValue).hasStudentsRegistrations())
             {
-                MessageBox.Show("Error","دانشجوی مورد نظر دارای واحد انتخابی می باشد!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(" !دانشجوی مورد نظر دارای واحد انتخابی می باشد","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             ((Students)cmbStudentList.SelectedValue).delete();

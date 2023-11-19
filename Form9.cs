@@ -21,10 +21,6 @@ namespace mainsite
             InitializeComponent();
         }
 
-        private void btnbackakharin_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void Form9_Load(object sender, EventArgs e)
         {
@@ -40,9 +36,10 @@ namespace mainsite
             {
                 ShowStudentsRegistrationsData temp = new();
                 temp.Id = sr.ID ?? 0;
+                temp.Students = sr.student.Firstname + " " + sr.student.Lastname;
                 temp.Lessons = sr.lesson.Lesson;
                 temp.Terms = sr.term.Term;
-                temp.Students = sr.student.Firstname + " " + sr.student.Lastname;
+
                 showStudentsRegistrationsDatas.Add(temp);
 
             }
@@ -53,29 +50,25 @@ namespace mainsite
         {
             if (e.KeyCode == Keys.Escape)
             {
-                btnbackakharin_Click(null, null);
+                btnBackRegistrationList_Click(null, null);
             }
         }
 
-        private void btndel_Click(object sender, EventArgs e)
+        private void btnBackRegistrationList_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDeleteRegistrationList_Click(object sender, EventArgs e)
         {
             int id = int.Parse(dataGridViewRegistration.CurrentRow.Cells[0].Value.ToString());
-            //SqlConnection connection = new SqlConnection();
-            //connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Visual studio\\Samples\\mainsite\\Database1.mdf\";Integrated Security=True";
-            //connection.Open();
-            //string q = string.Format("delete from tblresult where Id={0}", id);
-            //SqlCommand cmd = new SqlCommand(q, connection);
-            //cmd.ExecuteNonQuery();
-            //connection.Close();
-            //this.filler();
-
             StudentsRegistrations studentsRegistrations = new StudentsRegistrations();
-            studentsRegistrations.ID= id;   
+            studentsRegistrations.ID = id;
             studentsRegistrations.delete();
             filler();
         }
 
-        private void btnedit_Click(object sender, EventArgs e)
+        private void btnEditRegistrationList_Click(object sender, EventArgs e)
         {
             this.Close();
             Form8 form8 = new Form8();

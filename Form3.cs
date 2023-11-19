@@ -31,7 +31,7 @@ namespace mainsite
             }
         }
 
-        
+
         private void loadcombo()
         {
             Lessons l = new Lessons();
@@ -63,11 +63,15 @@ namespace mainsite
             ((Lessons)cmbLessonPresenting.SelectedValue).hasStudentsRegistrations();
             if (((Lessons)cmbLessonPresenting.SelectedValue).hasStudentsRegistrations())
             {
-                MessageBox.Show("درس مورد نظر توسط دانشجویان انتخاب شده است!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("!درس مورد نظر توسط دانشجویان انتخاب شده است", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }else
+            {
+                ((Lessons)cmbLessonPresenting.SelectedValue).delete();
+                this.loadcombo();
+
             }
-            ((Lessons)cmbLessonPresenting.SelectedValue).delete();
-            this.loadcombo();
+
         }
 
         private void btnEditLessonList_Click(object sender, EventArgs e)

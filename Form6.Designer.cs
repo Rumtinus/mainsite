@@ -50,7 +50,7 @@
             btnBackStudent.TabIndex = 0;
             btnBackStudent.Text = "بازگشت";
             btnBackStudent.UseVisualStyleBackColor = true;
-            btnBackStudent.Click += btnbackdanesh_Click;
+            btnBackStudent.Click += btnBackStudent_Click;
             // 
             // btnSaveStudent
             // 
