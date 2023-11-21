@@ -120,7 +120,23 @@ namespace CourseRegistration.Models
             this.term=new Terms();
             this.term.get(this.TermsID);
         }
+        public bool CheckRegistration()
+        {
+            _database.connect();
+            string q = string.Format("select * from Students_Registrations where ID!={0} and LessonsID={1} and TermsID={2} and StudentsID={3} ", this.ID??0, this.LessonsID,this.TermsID,this.StudentsID);
+            SqlDataReader reader = _database.QueryResult(q);
+            bool a = reader.Read();
+            if (reader.HasRows == true)
+            {
+                _database.disConnect();
+                return true;
 
+            }
+            _database.disConnect();
+            return false;
+
+
+        }
 
 
     }

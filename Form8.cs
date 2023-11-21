@@ -114,6 +114,12 @@ namespace mainsite
                 studentsRegistrations.TermsID = ((Terms)cmbTermChoosing.SelectedValue).TermID ?? 0;
                 studentsRegistrations.StudentsID = ((Students)cmbStudentChoosing.SelectedValue).StudentID ?? 0;
                 studentsRegistrations.CreateAt = DateTime.Now;
+                if (studentsRegistrations.CheckRegistration()==true)
+                {
+                    MessageBox.Show("!در حال حاضر انتخاب واحد با این اطلاعات موجود می باشد ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return;
+                }
                 studentsRegistrations.save();
                 MessageBox.Show("!دانشجو با موفقیت ثبت شد", "Processed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

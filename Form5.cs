@@ -72,7 +72,7 @@ namespace mainsite
             ((Terms)cmbTermList.SelectedValue).hasStudentsRegistrations();
             if (((Terms)cmbTermList.SelectedValue).hasStudentsRegistrations())
             {
-                MessageBox.Show("!ترم مورد توسط دانشجویان انتخاب شده است","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("!ترم مورد نظر توسط دانشجویان انتخاب شده است","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             ((Terms)cmbTermList.SelectedValue).delete();

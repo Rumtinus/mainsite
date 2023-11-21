@@ -77,9 +77,26 @@ namespace CourseRegistration.Models
         public bool hasStudentsRegistrations()
         {
             _database.connect();
-            string q = string.Format("SELECT * from [Students_Registrations] where LessonID={0}", this.LessonID);
+            string q = string.Format("SELECT * from [Students_Registrations] where LessonsID={0}", this.LessonID);
             SqlDataReader reader = _database.QueryResult(q);
 
+            if (reader.HasRows == true)
+            {
+                _database.disConnect();
+                return true;
+
+            }
+            _database.disConnect();
+            return false;
+            
+
+        }
+        public bool CheckLesson()
+        {
+            _database.connect();
+            string q = string.Format("SELECT * from [Lessons] where Lesson=N'{0}' and LessonID!={1}", this.Lesson,this.LessonID??0);
+            SqlDataReader reader = _database.QueryResult(q);
+            bool a = reader.Read();
             if (reader.HasRows == true)
             {
                 _database.disConnect();

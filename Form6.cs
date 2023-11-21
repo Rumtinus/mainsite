@@ -105,6 +105,11 @@ namespace mainsite
                 this.student.Firstname = txtNameStudent.Text;
                 this.student.Lastname = txtLastnameStudent.Text;
                 this.student.StudentNumber = int.Parse(txtStudentNumber.Text);
+                if (student.CheckStudent()==true)
+                {
+                    MessageBox.Show("!اطلاعات این داشنجو قبلا ثبت شده است ","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    return;
+                }
                 student.save();
                 txtLastnameStudent.Text = "";
                 txtNameStudent.Text = "";

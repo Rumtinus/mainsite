@@ -87,5 +87,21 @@ namespace CourseRegistration.Models
             return false;
 
         }
+        
+        public bool CheckTerm()
+        {
+            _database.connect();
+            string q = string.Format("SELECT * from [Terms] where TermID!={0} and Term={1}", this.TermID??0,this.Term);
+            SqlDataReader reader = _database.QueryResult(q);
+            if (reader.HasRows == true)
+            {
+                _database.disConnect();
+                return true;
+
+            }
+            _database.disConnect();
+            return false;
+
+        }
     }
 }

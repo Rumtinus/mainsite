@@ -82,6 +82,12 @@ namespace mainsite
             {
 
                 this.Term.Term = int.Parse(txtTermPresenting.Text.ToString());
+                if (Term.CheckTerm() == true)
+                {
+                    MessageBox.Show("! این ترم قبلا ثبت شده است ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return;
+                }
                 Term.save();
                 txtTermPresenting.Text = "";
                 txtTermPresenting.Focus();

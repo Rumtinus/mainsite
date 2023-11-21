@@ -96,5 +96,23 @@ namespace mainsite.Models
             return false;
 
         }
+
+        public bool CheckStudent()
+        {
+            _database.connect();
+            string q = string.Format("SELECT * from Students where StudentID!={0} and Firstname=N'{1}' and Lastname=N'{2}' and StudentNumber={3} ", this.StudentID ?? 0,this.Firstname,this.Lastname,this.StudentNumber);
+            SqlDataReader reader = _database.QueryResult(q);
+            bool a = reader.Read();
+            if (reader.HasRows == true)
+            {
+                _database.disConnect();
+                return true;
+
+            }
+            _database.disConnect();
+            return false;
+
+
+        }
     }
 }

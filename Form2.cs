@@ -39,6 +39,12 @@ namespace mainsite
 
 
                 this.lesson.Lesson = txtLessonPresenting.Text;
+                if (lesson.CheckLesson()==true)
+                {
+                    MessageBox.Show("! این درس قبلا ثبت شده است ","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    
+                    return;
+                }
                 this.lesson.save();
                 txtLessonPresenting.Text = "";
                 txtLessonPresenting.Focus();
